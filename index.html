@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML, CSS, JS Tutor</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Linking to the external CSS file -->
+    <link rel="stylesheet" href="/style.css">
+    <!-- PWA: Linking the manifest.json file -->
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand" data-page="lesson-html-intro" onclick="displayPage('lesson-html-intro', event)">HTML, CSS, JS Tutor</a>
+        <div class="flex items-center">
+            <div class="nav-links" id="main-nav-links">
+                <a href="#" data-page="lesson-html-intro" class="active">HTML</a>
+                <a href="#" data-page="lesson-css-intro">CSS</a>
+                <a href="#" data-page="lesson-js-intro">JavaScript</a>
+            </div>
+            <div class="lang-selector" id="desktop-lang-selector">
+                <button id="lang-en-btn" class="active">English</button>
+                <button id="lang-hi-btn">हिंदी</button>
+            </div>
+            <!-- Hamburger/X icon for mobile menu -->
+            <button class="hamburger-menu" id="hamburger-menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <div class="mobile-menu" id="mobile-menu">
+            <!-- Mobile nav links -->
+            <div class="mobile-nav-links">
+                <a href="#" data-page="lesson-html-intro">HTML</a>
+                <a href="#" data-page="lesson-css-intro">CSS</a>
+                <a href="#" data-page="lesson-js-intro">JavaScript</a>
+            </div>
+            <!-- Mobile language selector -->
+            <div class="lang-selector">
+                <button id="mobile-lang-en-btn" class="active">English</button>
+                <button id="mobile-lang-hi-btn">हिंदी</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-content-wrapper">
+        <p class="offline-status" id="offline-status">
+            <span class="text-green-400">Online</span>
+        </p>
+
+        <!-- Lesson Content Sections (Initially hidden, shown by JS) -->
+        <div id="lesson-html-intro" class="content-section active"></div>
+        <div id="lesson-css-intro" class="content-section"></div>
+        <div id="lesson-js-intro" class="content-section"></div>
+
+        <!-- Static Pages (Initially hidden, shown by JS) -->
+        <div id="page-privacy-policy" class="content-section">
+            <h2 class="text-purple-300">Privacy Policy</h2>
+            <p>This Privacy Policy describes how the HTML, CSS, JS Tutor web application ("App") collects, uses, and discloses your information when you use our App.</p>
+
+            <h3>Information We Collect</h3>
+            <p>The App does not directly collect or store any personally identifiable information (PII) from its users. All lesson content is embedded within the App's code and displayed locally on your device. We do not require user accounts or collect personal data such as names, email addresses, or payment information.</p>
+
+            <h3>Usage Data (Non-Personal)</h3>
+            <p>We may collect anonymous, non-personal usage data to understand how the App is used and to improve its functionality. This data may include information about which lessons are viewed, the duration of visits, and general interaction patterns. This data cannot be used to identify any individual user.</p>
+
+            <h3>Local Storage and Offline Access</h3>
+            <p>The App uses your browser's local storage to save your preferred language setting and the last viewed lesson. This allows for a personalized experience and enables the App to function offline once it has been initially loaded. No personal data is stored in local storage.</p>
+
+            <h3>Third-Party Services</h3>
+            <p>This App relies on third-party Content Delivery Networks (CDNs) for styling (Tailwind CSS) and fonts (Google Fonts). These services may collect anonymous usage data as per their own privacy policies. We do not integrate third-party analytics or advertising services that collect personal data.</p>
+
+            <h3>Changes to This Privacy Policy</h3>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+
+            <h3>Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy, please contact us through the usual channels for the platform where you accessed this App.</p>
+        </div>
+
+        <div id="page-terms-of-service" class="content-section">
+            <h2 class="text-purple-300">Terms of Services</h2>
+            <p>Welcome to the HTML, CSS, JS Tutor web application ("Service"). By using this Service, you agree to be bound by these Terms of Services. Please read them carefully.</p>
+
+            <h3>Use of the Service</h3>
+            <p>This Service is provided for educational purposes only, to help you learn HTML, CSS, and JavaScript. The content provided is for general information and learning. While we strive for accuracy, we do not guarantee the completeness, reliability, or accuracy of the content. You use the Service at your own risk.</p>
+
+            <h3>Intellectual Property</h3>
+            <p>All content, features, and functionality within the HTML, CSS, JS Tutor (excluding third-party libraries like Tailwind CSS and Google Fonts) are owned by us and are protected by international copyright laws. You may use the content for personal learning and non-commercial purposes only.</p>
+
+            <h3>User Conduct</h3>
+            <p>You agree not to use the Service for any unlawful purpose or in any way that could damage, disable, overburden, or impair the Service or interfere with any other party's use and enjoyment of the Service.</p>
+
+            <h3>Disclaimer of Warranties</h3>
+            <p>The Service is provided on an "AS IS" and "AS AVAILABLE" basis, without any warranties of any kind, either express or implied. We do not warrant that the Service will be uninterrupted, error-free, or secure.</p>
+
+            <h3>Limitation of Liability</h3>
+            <p>In no event shall the HTML, CSS, JS Tutor, its creators, or affiliates be liable for any direct, indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.</p>
+
+            <h3>Changes to Terms</h3>
+            <p>We reserve the right to modify or replace these Terms at any time. We will provide notice of any new terms. Your continued use of the Service after any such modifications constitutes your acceptance of the new Terms.</p>
+
+            <h3>Contact Information</h3>
+            <p>For any questions about these Terms of Services, please contact us through the usual channels for the platform where you accessed this App.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer Bar -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#" data-page="lesson-html-intro" class="active" onclick="displayPage('lesson-html-intro', event)">Home</a>
+            <a href="#" data-page="page-privacy-policy" onclick="displayPage('page-privacy-policy', event)">Privacy Policy</a>
+            <a href="#" data-page="page-terms-of-service" onclick="displayPage('page-terms-of-service', event)">Terms of Services</a>
+        </div>
+    </footer>
+
+    <!-- Offline Modal -->
+    <div id="offlineModalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalMessage"></p>
+            <button id="modalCloseBtn"></button>
+        </div>
+    </div>
+
+    <!-- Linking to the external JavaScript file -->
+    <script src="/script.js"></script>
+</body>
+</html>
